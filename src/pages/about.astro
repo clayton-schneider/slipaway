@@ -3,6 +3,7 @@ import Layout from "src/layouts/Layout.astro";
 import { Image } from "@astrojs/image/components";
 import boarding from "@data/home/imgs/boarding.jpg";
 import Team from "@components/Team.astro";
+import CallToAction from "@sections/general/CallToAction.astro";
 
 const teamMembers = [
   {
@@ -28,6 +29,33 @@ const teamMembers = [
       src: "https://images.unsplash.com/photo-1501117251959-59533d62881e",
       alt: "crew andy",
     },
+  },
+];
+
+const locations = [
+  {
+    image: {
+      src: import("@data/about/island-excursion.jpg"),
+      alt: "Wethersfield Cover Park",
+    },
+    title: "Wethersfield Cover Park",
+    body: "533 Main Street, Wethersfield, CT",
+  },
+  {
+    image: {
+      src: import("@data/about/boat-sideview-sunset.jpg"),
+      alt: "glastonbury riverfront park",
+    },
+    title: "Glastonbury Riverfront Park",
+    body: "533 Main Street, Wethersfield, CT",
+  },
+  {
+    image: {
+      src: import("@data/about/yellow-boat.jpg"),
+      alt: "Rocky Hill Ferry Park",
+    },
+    title: "Rocky Hill Ferry Park",
+    body: "533 Main Street, Wethersfield, CT",
   },
 ];
 ---
@@ -84,4 +112,32 @@ const teamMembers = [
       }
     </div>
   </section>
+
+  <section class="my-20 bg-light-blue/30 py-20">
+    <div class="max-w-7xl mx-auto px-[2.5%] lg:px-0">
+      <div class="font-bold text-center">
+        <p class="text-orange">Address</p>
+        <h2 class="font-candal text-dark-blue text-4xl">Location</h2>
+      </div>
+      <div class="flex justify-center gap-10 mt-10 flex-wrap">
+        {
+          locations.map((loc) => (
+            <div class="bg-white max-w-[400px] rounded-xl p-3 pb-6">
+              <Image
+                class="rounded-md"
+                src={loc.image.src}
+                alt={loc.image.alt}
+                height={250}
+                aspectRatio={380 / 260}
+              />
+              <h6 class="mt-6 font-bold text-xl">{loc.title}</h6>
+              <p class="mt-2">{loc.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
 </Layout>
