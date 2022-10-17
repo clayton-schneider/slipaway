@@ -1,0 +1,87 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import boarding from "@data/home/imgs/boarding.jpg";
+import Team from "@components/Team.astro";
+
+const teamMembers = [
+  {
+    name: "Captain Bill",
+    bio: "string",
+    image: {
+      src: "https://images.unsplash.com/photo-1612633201772-9a8f3df6bbf6",
+      alt: "captain bill",
+    },
+  },
+  {
+    name: "Skipper Mark",
+    bio: "string",
+    image: {
+      src: "https://images.unsplash.com/photo-1528365906689-f16e2274b068",
+      alt: "skipper mark",
+    },
+  },
+  {
+    name: "Crew Andy",
+    bio: "string",
+    image: {
+      src: "https://images.unsplash.com/photo-1501117251959-59533d62881e",
+      alt: "crew andy",
+    },
+  },
+];
+---
+
+<Layout title="About">
+  <section class="overflow-x-hidden px-[2.5%] lg:px-0 my-10">
+    <div class="max-w-4xl relative text-center mx-auto">
+      {/* Absolute Circles */}
+      <div class="w-24 h-24 rounded-full bg-yellow/20 absolute -left-60 top-20">
+      </div>
+
+      <div
+        class="w-[440px] h-[440px] -right-32 top-60 bg-blue-pastel/10 rounded-full absolute"
+      >
+      </div>
+      <div
+        class="w-14 h-14 bg-purple/20 absolute rounded-full -right-60 top-60"
+      >
+      </div>
+
+      {/* Absolute Circles */}
+      <Image src={boarding} alt="slipaway river tours" class="rounded-3xl" />
+
+      <h1 class="font-bold text-5xl font-candal text-dark-blue mt-10">
+        About Slipaway River Tours
+      </h1>
+      <div class="text-dark-blue/70 mt-4 space-y-2 leading-loose">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          quos rem atque voluptas nostrum ipsa doloribus numquam suscipit
+          repellendus at distinctio cum quis officia, natus eos, ad dicta?
+          Voluptatibus, iusto?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+          doloremque dolorem repellendus facilis fuga quidem nam similique,
+          voluptatibus earum tempora?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* The Team */}
+  <section class="my-20 overflow-x-clip">
+    <div class="max-w-7xl mx-auto px-[2.5%] lg:px-0">
+      <div class="font-bold text-center">
+        <p class="text-orange">Team</p>
+        <h2 class="font-candal text-4xl text-dark-blue">Meet The Team</h2>
+      </div>
+      {
+        teamMembers.map((member, index) => (
+          <Team index={index} content={member} />
+        ))
+      }
+    </div>
+  </section>
+</Layout>

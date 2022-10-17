@@ -1,0 +1,23 @@
+---
+import { Image } from "@astrojs/image/components";
+import star from "@data/general/imgs/star.png";
+
+interface Props {
+  className?: string;
+  review: {
+    author: string;
+    body: string;
+    highlight: string;
+  };
+}
+const { className, review } = Astro.props;
+---
+
+<div class="max-w-3xl mt-16 p-5 relative z-10 rounded-2xl bg-white">
+  <div class="flex space-x-1">
+    {[...Array(5).keys()].map(() => <Image src={star} alt="review star" />)}
+  </div>
+  <p class="mt-5 font-candal font-bold text-orange">{review.highlight}</p>
+  <p class="text-sm mt-2 leading-loose italic">{review.body}</p>
+  <p class="text-blue font-candal font-bold">{review.author}</p>
+</div>

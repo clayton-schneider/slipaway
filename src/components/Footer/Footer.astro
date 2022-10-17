@@ -1,0 +1,115 @@
+---
+const companyLinks = [
+  { linkText: "About", link: "/about" },
+  { linkText: "FAQs", link: "/faqs" },
+  { linkText: "Contact", link: "/contact" },
+  { linkText: "Book Online", link: "/book" },
+];
+
+const tourLinks = [
+  { linkText: "Narrated Public Tour", link: "/narrated-public-tour" },
+  { linkText: "Speciatly Cruise", link: "/specialty-cruise" },
+  { linkText: "Private Charter", link: "/private-charter" },
+  { linkText: "Island Excursion", link: "/island-excursion" },
+];
+import { socialLinks } from "@data/footer/Footer";
+
+import { Image } from "@astrojs/image/components";
+import logo from "@data/home/imgs/sar-logo.png";
+---
+
+<section class="text-white">
+  <footer class="bg-blue">
+    <div class="max-w-7xl mx-auto py-20 flex justify-between">
+      <div class="max-w-sm">
+        <Image src={logo} alt="slipaway river tours" width={100} height={100} />
+        <p class="mt-4 leading-loose">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, alias
+          labore quod sit quas nulla, odio, commodi ipsam consequatur id?
+        </p>
+      </div>
+      <div>
+        <h6 class="font-candal font-bold text-sm leading-none">Company</h6>
+        <div class="flex flex-col mt-4 space-y-2">
+          {companyLinks.map((link) => <a href={link.link}>{link.linkText}</a>)}
+        </div>
+      </div>
+      <div>
+        <h6 class="font-candal font-bold text-sm leading-none">Tours</h6>
+        <div class="flex flex-col mt-4 space-y-2">
+          {tourLinks.map((link) => <a href={link.link}>{link.linkText}</a>)}
+        </div>
+      </div>
+      <div>
+        <h6 class="font-candal font-bold text-sm">Get In Touch</h6>
+        <div class="flex flex-col mt-4 space-y-2">
+          <div class="flex space-x-2 items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              class="fill-orange"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+              ></path>
+            </svg>
+            <p>860-210-2400</p>
+          </div>
+          <div class="flex space-x-2 items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              class="fill-orange"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
+              ></path>
+            </svg>
+            <p>bill@slipawayrivertours.com</p>
+          </div>
+          <div class="flex space-x-2 items-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              class="fill-orange"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+              ></path>
+            </svg>
+            <p>
+              Wethersfield Cover Park <br />GPS: 533 Main Street, Wethersfield,
+              CT
+            </p>
+          </div>
+        </div>
+        <div class="flex space-x-2 mt-4">
+          {
+            socialLinks.map((link) => (
+              <a href={link.link} target="_blank">
+                <div class="rounded-full bg-primary/40 p-3">
+                  <Image src={link.img} alt={link.alt} />
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="bg-primary text-center py-2 text-sm text-white/80">
+    <p>
+      © 2022 Slipaway River Tours | Powered by <a
+        href="https://www.simply-sprout.com"
+        target="_blank">Simply Sprout</a
+      >
+    </p>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import IconCard from "@components/Card/IconCard.astro";
+
+import tours from "@data/home/tours";
+---
+
+<section class="my-20">
+  <div class="relative flex justify-between max-w-7xl mx-auto space-x-4">
+    {
+      tours.map((tour) => (
+        <IconCard
+          img={tour.img}
+          title={tour.title}
+          description={tour.description}
+        />
+      ))
+    }
+    <div class="w-5 h-5 bg-purple/30 absolute -top-5 -right-10 rounded-full">
+    </div>
+  </div>
+</section>

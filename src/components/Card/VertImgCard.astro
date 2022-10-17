@@ -1,0 +1,19 @@
+---
+interface Props {
+  img: string;
+  alt: string;
+  classes?: string;
+}
+
+const { img, alt, classes } = Astro.props;
+
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="w-[400px] h-[600px]">
+  <Image
+    src={img}
+    alt={alt}
+    class={classes + " rounded-[50px] object-cover h-full"}
+  />
+</div>

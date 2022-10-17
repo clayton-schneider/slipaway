@@ -1,0 +1,32 @@
+---
+import "../styles.css";
+import TopBar from "../components/TopBar.astro";
+import Hero from "@sections/home/Hero.astro";
+import Showcase from "@sections/home/Showcase.astro";
+import Tours from "@sections/home/Tours.astro";
+import Reviews from "@sections/home/Reviews.astro";
+import CallToAction from "@sections/general/CallToAction.astro";
+import Footer from "@components/Footer/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Slipaway River Tours</title>
+  </head>
+  <body>
+    <main>
+      <TopBar />
+      <Hero />
+      <Showcase />
+      <Tours />
+      <Reviews />
+      <CallToAction />
+      <Footer />
+    </main>
+  </body>
+</html>

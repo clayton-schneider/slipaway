@@ -1,0 +1,29 @@
+---
+interface Props {
+  img: {
+    src: unknown;
+    alt: string;
+    color: string;
+  };
+  title: string;
+  description: string;
+}
+const { img, title, description } = Astro.props;
+
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="flex flex-col items-center max-w-sm text-center">
+  <div
+    class={img.color +
+      " w-16 h-16 rounded-full flex items-center justify-center"}
+  >
+    <Image src={img.src} alt={img.alt} />
+  </div>
+  <h2 class="mt-8 font-candal font-bold text-2xl text-dark-blue">
+    {title}
+  </h2>
+  <p class="mt-4 leading-relaxed">
+    {description}
+  </p>
+</div>

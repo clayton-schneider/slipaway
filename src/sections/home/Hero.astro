@@ -1,0 +1,70 @@
+---
+import { Image } from "@astrojs/image/components";
+import bgImage from "@data/home/imgs/river.jpg";
+import heroImg1 from "@data/home/imgs/boarding.jpg";
+import heroImg2 from "@data/home/imgs/pre-departure.jpg";
+import cruise from "@data/home/imgs/cruise.png";
+import canoe from "@data/home/imgs/canoe.png";
+
+import Header from "@components/Header/Header.astro";
+import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
+import VertImgCard from "@components/Card/VertImgCard.astro";
+---
+
+<section class="relative h-screen max-h-[1000px] max-w-8xl mx-auto">
+  {/* Absolute Positioned Elements */}
+  <Header className="absolute top-0 left-0 w-full z-50 text-white" />
+  <Image
+    src={bgImage}
+    alt="Slipaway River Tours"
+    class="absolute right-0 top-0 w-full lg:w-2/3 h-full object-cover z-0"
+  />
+  <div class="absolute top-0 right-0 z-10 w-full lg:w-2/3 h-full bg-blue/50">
+  </div>
+
+  {/* The Content */}
+  <div
+    class="flex flex-col lg:flex-row justify-between pt-36 px-[5%] z-20 relative"
+  >
+    <div class="lg:w-2/3 text-center lg:text-left relative lg:order-last">
+      <Image
+        src={cruise}
+        alt="Cruise Tour"
+        class="absolute -top-10 -right-5 scale-75 z-0 pointer-events-none"
+      />
+      <Image
+        src={canoe}
+        alt="Cruise Tour"
+        class="absolute -bottom-40 left-0 xl:-bottom-5 xl:-left-40 scale-75 z-0 pointer-events-none"
+      />
+      <div class="relative z-20 text-white mt-40 max-w-3xl mx-auto">
+        <h1 class="font-bold font-candal text-6xl">
+          It's a Big World <br /> Out There, Go Explore
+        </h1>
+        <h3 class="font-candal font-bold text-xl mt-4">
+          Last Day of the Season is Saturday, October 1
+        </h3>
+        <p class="mt-4 leading-relaxed text-lg">
+          If your desired tour shows are fully booked call Captain Bill.
+          Sometimes he can accomodate more people.
+        </p>
+        <PrimaryBtn
+          to="/book"
+          text="Book Online"
+          classes="mt-10 relative z-10"
+        />
+      </div>
+    </div>
+    {/* Must come second for z index to work */}
+    <div
+      class="lg:flex hidden flex-row mt-20 items-center relative z-20 order-1 mr-10 xl:-ml-32 -ml-64 space-x-5"
+    >
+      <VertImgCard classes="shrink" img={heroImg1} alt="Slipaway River Tours" />
+      <VertImgCard
+        classes="grow shrink-0"
+        img={heroImg2}
+        alt="Slipaway River Tours"
+      />
+    </div>
+  </div>
+</section>

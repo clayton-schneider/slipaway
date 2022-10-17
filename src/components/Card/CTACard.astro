@@ -1,0 +1,49 @@
+---
+import { Image } from "@astrojs/image/components";
+import SecondaryBtn from "@components/Button/SecondaryBtn.astro";
+
+interface Props {
+  className?: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  content: {
+    headline: string;
+    body: string;
+    cta: {
+      to: string;
+      text: string;
+    };
+  };
+}
+const { className, image, content } = Astro.props;
+---
+
+<div
+  class={"max-w-5xl relative mx-auto rounded-3xl " +
+    (className ? className : "")}
+>
+  <Image
+    src={image.src}
+    alt={image.alt}
+    class="absolute w-full h-full object-cover rounded-3xl"
+  />
+  <div class="w-full h-full bg-blue/60 absolute top-0 left-0 rounded-3xl"></div>
+
+  <div
+    class="text-white relative z-10 px-10 py-20 text-center flex flex-col justify-center h-full"
+  >
+    <h2 class="font-candal font-bold text-3xl">
+      {content.headline}
+    </h2>
+    <p class="mt-4 leading-loose">
+      {content.body}
+    </p>
+    <SecondaryBtn
+      to={content.cta.to}
+      text={content.cta.text}
+      classes="mt-4 self-start mx-auto"
+    />
+  </div>
+</div>
