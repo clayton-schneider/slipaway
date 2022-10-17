@@ -12,16 +12,20 @@ interface Props {
 }
 const { index, content } = Astro.props;
 
+const isEven = index % 2 === 0;
+
 import { Image } from "@astrojs/image/components";
 import topo from "@data/general/imgs/topography-1.png";
 ---
 
 <div
-  class="flex flex-col items-center lg:items-start lg:flex-row space-y-10 my-10 lg:space-y-0 lg:space-x-10"
+  class={"flex flex-col items-center lg:items-start space-y-10 my-10 lg:space-y-0 lg:space-x-10 " +
+    (isEven ? "lg:flex-row" : "lg:flex-row-reverse")}
 >
   <div class="grow shrink-0 relative">
     <div
-      class="w-80 h-64 bg-dark-blue top-1/2 left-0 -translate-x-full -translate-y-1/2 absolute"
+      class={"w-80 h-64 bg-dark-blue top-1/2 -translate-y-1/2 absolute " +
+        (isEven ? "left-0 -translate-x-full " : "right-0 translate-x-full")}
     >
       <Image class="h-full" src={topo} alt="slipaway river tours" />
     </div>
