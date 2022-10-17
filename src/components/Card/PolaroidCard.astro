@@ -1,0 +1,28 @@
+---
+interface Props {
+  content: {
+    image: {
+      src: any;
+      alt: string;
+    };
+    title?: string;
+    body?: string;
+  };
+}
+
+const { content } = Astro.props;
+
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="bg-white max-w-[400px] rounded-xl p-3 pb-6">
+  <Image
+    class="rounded-md"
+    src={content.image.src}
+    alt={content.image.alt}
+    height={250}
+    aspectRatio={380 / 260}
+  />
+  {content.title && <h6 class="mt-6 font-bold text-xl">{content.title}</h6>}
+  {content.body && <p class="mt-2">{content.body}</p>}
+</div>

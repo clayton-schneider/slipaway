@@ -4,6 +4,7 @@ import { Image } from "@astrojs/image/components";
 import boarding from "@data/home/imgs/boarding.jpg";
 import Team from "@components/Team.astro";
 import CallToAction from "@sections/general/CallToAction.astro";
+import PolaroidCard from "@components/Card/PolaroidCard.astro";
 
 const teamMembers = [
   {
@@ -120,21 +121,7 @@ const locations = [
         <h2 class="font-candal text-dark-blue text-4xl">Location</h2>
       </div>
       <div class="flex justify-center gap-10 mt-10 flex-wrap">
-        {
-          locations.map((loc) => (
-            <div class="bg-white max-w-[400px] rounded-xl p-3 pb-6">
-              <Image
-                class="rounded-md"
-                src={loc.image.src}
-                alt={loc.image.alt}
-                height={250}
-                aspectRatio={380 / 260}
-              />
-              <h6 class="mt-6 font-bold text-xl">{loc.title}</h6>
-              <p class="mt-2">{loc.body}</p>
-            </div>
-          ))
-        }
+        {locations.map((loc) => <PolaroidCard content={loc} />)}
       </div>
     </div>
   </section>
