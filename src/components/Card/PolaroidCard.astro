@@ -1,5 +1,6 @@
 ---
 interface Props {
+  className?: string;
   content: {
     image: {
       src: any;
@@ -7,15 +8,23 @@ interface Props {
     };
     title?: string;
     body?: string;
+    cta?: {
+      to: string;
+      text: string;
+    };
   };
 }
 
-const { content } = Astro.props;
+const { className, content } = Astro.props;
 
 import { Image } from "@astrojs/image/components";
+import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
 ---
 
-<div class="bg-white max-w-[400px] rounded-xl p-3 pb-6">
+<div
+  class={"bg-white max-w-[400px] rounded-xl p-3 pb-6 " +
+    (className ? className : "")}
+>
   <Image
     class="rounded-md"
     src={content.image.src}
@@ -25,4 +34,13 @@ import { Image } from "@astrojs/image/components";
   />
   {content.title && <h6 class="mt-6 font-bold text-xl">{content.title}</h6>}
   {content.body && <p class="mt-2">{content.body}</p>}
+  {
+    content.cta && (
+      <PrimaryBtn
+        to={content.cta.to}
+        text={content.cta.text}
+        classes="mt-4 py-2"
+      />
+    )
+  }
 </div>
