@@ -1,0 +1,110 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import boarding from "@data/home/imgs/boarding.jpg";
+import CallToAction from "@sections/general/CallToAction.astro";
+import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
+
+const contacts = [
+  {
+    title: "Email Us",
+    body: "bill@slipawayrivertours.com",
+  },
+  {
+    title: "Call Us",
+    body: "860-643-2400",
+  },
+  {
+    title: "Our Location",
+    body: "533 Main Street, Wethersfield, CT",
+  },
+];
+---
+
+<Layout title="Contact Us">
+  <section class="px-[2.5%] my-20">
+    <div class="max-w-7xl mx-auto relative">
+      {/* Absolute Circles */}
+      <div class="w-20 h-20 absolute rounded-full bg-yellow/20 top-10 -left-24">
+      </div>
+      <div
+        class="w-32 h-32 absolute rounded-full bg-blue-pastel/30 blur-xl top-20 right-20 z-0"
+      >
+      </div>
+      <div class="w-8 h-8 absolute rounded-full bg-purple/20 -right-10 -top-20">
+      </div>
+      <div class="font-bold text-center">
+        <p class="text-orange">Contact Us</p>
+        <h1 class="text-dark-blue text-5xl font-candal">Get In Touch</h1>
+      </div>
+
+      <div class="mt-16 flex gap-10 justify-between z-10 relative bg-white">
+        <Image
+          class="rounded-3xl"
+          src={boarding}
+          alt="slipaway river tours"
+          width={500}
+          height={500}
+        />
+        {/* Contact Form */}
+        <div
+          class="grow rounded-2xl max-w-[600px] shadow-lg py-10 px-6 flex flex-col items-center"
+        >
+          <div class="space-y-4 w-full">
+            <input
+              class="block w-full rounded-lg border-gray-200 border-2 p-3"
+              type="text"
+              placeholder="Full Name"
+            />
+            <div class="flex gap-2">
+              <input
+                class="rounded-lg w-1/2 border-gray-200 border-2 p-3"
+                type="email"
+                placeholder="Email"
+              />
+              <input
+                class="rounded-lg w-1/2 border-gray-200 border-2 p-3"
+                type="tel"
+                placeholder="Phone"
+              />
+            </div>
+            <textarea
+              class="resize-none rounded-lg border-gray-200 border-2 p-3 w-full"
+              placeholder="Type Message"
+              rows="10"></textarea>
+          </div>
+          <PrimaryBtn to="/contact" text="Submit" classes="mt-4 !px-10" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-20 px-[2.5%]">
+    <div class="max-w-7xl mx-auto">
+      <div class="font-bold text-center">
+        <p class="text-orange">Details</p>
+        <h2 class="font-candal text-dark-blue text-5xl">Contact Us</h2>
+      </div>
+
+      <div class="mt-10 flex justify-between">
+        <div class="w-[560px] h-[455px] bg-gray-300 rounded-3xl"></div>
+
+        <div class="max-w-md grow space-y-6">
+          {
+            contacts.map((contact) => (
+              <div class="flex w-full space-x-4 shadow-lg py-4 px-8 rounded-xl">
+                <div class="w-16 h-16 bg-orange rounded" />
+                <div class="space-y-2">
+                  <p class="font-bold text-lg font-candal">{contact.title}</p>
+                  <p>{contact.body}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</Layout>
