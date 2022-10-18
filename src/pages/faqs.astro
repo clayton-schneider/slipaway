@@ -1,0 +1,51 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import Accordian from "@components/Accordian/Accordian";
+import CallToAction from "@sections/general/CallToAction.astro";
+
+const faqs = [
+  {
+    title: "Restroom",
+    content: `First question everyone asks, and yes, there is a clean restroom on board known as the "head".  It includes a Porta-Potty and sink.  But please be mindful that someone has to empty it, so 'go before you board'.  There are Porta-Jons near the docks.`,
+  },
+  {
+    title: "Accessibility",
+    content: `The Slipaway is wheelchair accessible with a ramp for boarding and extra space available. Some departure locations are better than others.  Rocky Hill is the most wheelchair friendly with paved parking and a short, stable ramp to the boarding dock.  Wethersfield Cove is less friendly with an unpaved lot and a longer, rather bumpy dock, but it is doable.  Glastonbury is usually not an option.  The Captain and Crew are available to assist.  Just call or email the Captain if you have particular needs.  Allow extra time for boarding.  Note!! It may be necessary to charge a relocation fee for Charter locations different
+from where the Slipaway is at on a particular day or time.  Talk to the Captain.`,
+  },
+];
+---
+
+<Layout title="Policies & FAQs">
+  <section class="my-20">
+    <div class="max-w-7xl mx-auto relative">
+      {/* Aboslute Circles */}
+      <div class="w-20 h-20 rounded-full absolute left-0 top-0 bg-yellow/20">
+      </div>
+      <div
+        class="w-40 h-40 rounded-full absolute right-10 top-40 bg-blue-pastel/10 blur"
+      >
+      </div>
+      <div class="w-6 h-6 rounded-full absolute -right-20 top-20 bg-purple/20">
+      </div>
+      {/* Absolute Circles */}
+      <div class="relative z-50">
+        <div class="text-center">
+          <h1 class="font-bold text-5xl text-dark-blue">
+            Policies & Frequently Asked Questions
+          </h1>
+          <p class="leading-loose max-w-3xl mx-auto mt-4">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam
+            corporis exercitationem quibusdam eveniet similique! Error quam, eum
+            consequuntur minima commodi nesciunt eius cumque magnam at hic
+            inventore. Officiis, delectus cupiditate!
+          </p>
+        </div>
+        <div class="max-w-4xl mx-auto">
+          <Accordian items={faqs} client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+  <CallToAction />
+</Layout>
