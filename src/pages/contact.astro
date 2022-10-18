@@ -5,16 +5,21 @@ import boarding from "@data/home/imgs/boarding.jpg";
 import CallToAction from "@sections/general/CallToAction.astro";
 import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
 
+import { Icon } from "astro-icon";
+
 const contacts = [
   {
+    svg: "ic:baseline-email",
     title: "Email Us",
     body: "bill@slipawayrivertours.com",
   },
   {
+    svg: "ic:baseline-phone",
     title: "Call Us",
     body: "860-643-2400",
   },
   {
+    svg: "ic:baseline-location-on",
     title: "Our Location",
     body: "533 Main Street, Wethersfield, CT",
   },
@@ -86,16 +91,20 @@ const contacts = [
         <h2 class="font-candal text-dark-blue text-5xl">Contact Us</h2>
       </div>
 
-      <div class="mt-10 flex justify-between">
+      <div class="mt-10 flex justify-between items-center">
         <div class="w-[560px] h-[455px] bg-gray-300 rounded-3xl"></div>
 
         <div class="max-w-md grow space-y-6">
           {
             contacts.map((contact) => (
-              <div class="flex w-full space-x-4 shadow-lg py-4 px-8 rounded-xl">
-                <div class="w-16 h-16 bg-orange rounded" />
+              <div class="flex w-full space-x-4 shadow-lg shadow-gray-300 py-4 px-8 rounded-xl">
+                <div class="px-2 py-1 flex items-center bg-orange rounded-lg">
+                  <Icon name={contact.svg} size="40" color="white" />
+                </div>
                 <div class="space-y-2">
-                  <p class="font-bold text-lg font-candal">{contact.title}</p>
+                  <p class="font-bold text-lg text-dark-blue font-candal">
+                    {contact.title}
+                  </p>
                   <p>{contact.body}</p>
                 </div>
               </div>
