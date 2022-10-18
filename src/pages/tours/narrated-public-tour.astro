@@ -1,0 +1,128 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import tourImg from "@data/general/imgs/public-tour.jpg";
+import topo from "@data/general/imgs/topography-1.png";
+import CallToAction from "@sections/general/CallToAction.astro";
+import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
+
+import { Icon } from "astro-icon";
+import Contact from "../contact.astro";
+
+const details = [
+  {
+    svg: "mdi:clock",
+    title: "Duration",
+    body: "This is just placeholder text.",
+  },
+  {
+    svg: "mdi:check-circle",
+    title: "Availability",
+    body: "This is just placeholder text.",
+  },
+  {
+    svg: "mdi:calendar-blank",
+    title: "Season",
+    body: "This is just placeholder text.",
+  },
+];
+---
+
+<Layout title="Narrated Public Tour">
+  <section class="my-20 px-[2.5%]">
+    <div class="max-w-7xl mx-auto relative">
+      {/* Absolute Circles */}
+      <div
+        class="w-48 h-48 rounded-full bg-blue-pastel/10 blur absolute right-0 top-0"
+      >
+      </div>
+      <div
+        class="w-10 h-10 rounded-full bg-purple/20 absolute -right-10 -top-5"
+      >
+      </div>
+      {/* Absolute Circles */}
+
+      {/* Intro Section */}
+      <div
+        class="flex flex-col-reverse items-center lg:items-start lg:flex-row gap-10"
+      >
+        <div class="grow shrink-0 relative">
+          <div
+            class="w-80 h-64 bg-dark-blue left-0 -translate-x-full top-1/2 -translate-y-1/2 absolute"
+          >
+            <Image class="h-full" src={topo} alt="slipaway river tours" />
+          </div>
+          <Image
+            class="rounded-3xl"
+            src={tourImg}
+            alt="slipaway river tour"
+            width={600}
+            height={450}
+            fit=""
+          />
+        </div>
+        <div class="text-center lg:text-left">
+          <h1 class="font-candal text-5xl text-dark-blue">
+            Narrated Public Tour
+          </h1>
+          <div class="mt-4 space-y-2 text-dark-blue/90">
+            <p class="leading-loose">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia
+              temporibus id molestiae optio qui expedita dolorem sunt rerum eos,
+              unde nesciunt ab, nemo magnam? Voluptatum nostrum at reprehenderit
+              ipsum voluptates.
+            </p>
+            <ul class="space-y-2 list-disc list-inside marker:text-orange">
+              {
+                [...Array(5).keys()].map((num) => (
+                  <li>Lorem ipsum dolor sit.</li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* End Intro */}
+      <div
+        class="mt-10 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10"
+      >
+        <div class="max-w-[600px]">
+          <h2 class="font-candal font-bold text-3xl text-dark-blue">
+            This is just a placeholder
+          </h2>
+          <p class="text-dark-blue/90 mt-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            molestias et sed nisi reiciendis expedita. Excepturi dolor est
+            maxime temporibus, ab quas blanditiis, facilis sapiente earum beatae
+            officiis vitae fugiat?
+          </p>
+          <PrimaryBtn to="/book" text="Book Online" classes="mt-4" />
+        </div>
+        <div
+          class="bg-light-blue/30 w-full md:max-w-md grow shrink-0 rounded-3xl p-10"
+        >
+          <h6 class="text-center font-bold font-candal text-2xl text-dark-blue">
+            Quick Details
+          </h6>
+          <ul class="space-y-6 mt-4">
+            {
+              details.map((detail) => (
+                <li class="flex gap-5">
+                  <div class="w-[60px] h-[60px] bg-orange rounded-xl flex justify-center items-center">
+                    <Icon name={detail.svg} color="white" size="30" />
+                  </div>
+                  <div>
+                    <p class="font-bold text-lg font-candal">{detail.title}</p>
+                    <p>{detail.body}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<CallToAction />
