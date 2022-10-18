@@ -5,7 +5,14 @@ import ctaSection from "@data/general/ctaSection";
 import sunset from "@data/home/imgs/slipaway-river-tours-sunset.jpg";
 ---
 
-<section class="my-40">
+<section class="my-40 px-[2.5%] relative">
+  {/* Absolute Circles */}
+  <div class="w-12 h-12 bg-purple/20 rounded-full absolute left-40 -top-10">
+  </div>
+  <div class="w-10 h-10 bg-purple/20 rounded-full absolute -bottom-10 right-10">
+  </div>
+  <div class="w-16 h-16 bg-yellow/20 rounded-full absolute top-0 right-20">
+  </div>
   <CTACard
     content={ctaSection}
     image={{ src: sunset, alt: "River Tours CT" }}
