@@ -19,29 +19,39 @@ import logo from "@data/home/imgs/sar-logo.png";
 ---
 
 <section class="text-white">
-  <footer class="bg-blue">
-    <div class="max-w-7xl mx-auto py-20 flex justify-between">
+  <footer class="bg-blue px-[2.5%]">
+    <div
+      class="max-w-7xl mx-auto py-20 flex flex-col gap-5 lg:flex-row items-center lg:items-start justify-between"
+    >
       <div class="max-w-sm">
-        <Image src={logo} alt="slipaway river tours" width={100} height={100} />
-        <p class="mt-4 leading-loose">
+        <Image
+          class="mx-auto lg:mx-0"
+          src={logo}
+          alt="slipaway river tours"
+          width={100}
+          height={100}
+        />
+        <p class="mt-4 text-center lg:text-left leading-loose">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, alias
           labore quod sit quas nulla, odio, commodi ipsam consequatur id?
         </p>
       </div>
-      <div>
+      <div class="text-center lg:text-left">
         <h6 class="font-candal font-bold text-sm leading-none">Company</h6>
         <div class="flex flex-col mt-4 space-y-2">
           {companyLinks.map((link) => <a href={link.link}>{link.linkText}</a>)}
         </div>
       </div>
-      <div>
+      <div class="text-center lg:text-left">
         <h6 class="font-candal font-bold text-sm leading-none">Tours</h6>
         <div class="flex flex-col mt-4 space-y-2">
           {tourLinks.map((link) => <a href={link.link}>{link.linkText}</a>)}
         </div>
       </div>
       <div>
-        <h6 class="font-candal font-bold text-sm">Get In Touch</h6>
+        <h6 class="font-candal text-center lg:text-left font-bold text-sm">
+          Get In Touch
+        </h6>
         <div class="flex flex-col mt-4 space-y-2">
           <div class="flex space-x-2 items-center">
             <svg
@@ -90,7 +100,7 @@ import logo from "@data/home/imgs/sar-logo.png";
             </p>
           </div>
         </div>
-        <div class="flex space-x-2 mt-4">
+        <div class="flex justify-center lg:justify-start space-x-2 mt-4">
           {
             socialLinks.map((link) => (
               <a href={link.link} target="_blank">
