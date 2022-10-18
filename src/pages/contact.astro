@@ -6,7 +6,7 @@ import CallToAction from "@sections/general/CallToAction.astro";
 import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
 
 import { Icon } from "astro-icon";
-
+import Map from "@components/Map.astro";
 const contacts = [
   {
     svg: "ic:baseline-email",
@@ -43,7 +43,9 @@ const contacts = [
         <h1 class="text-dark-blue text-5xl font-candal">Get In Touch</h1>
       </div>
 
-      <div class="mt-16 flex gap-10 justify-between z-10 relative bg-white">
+      <div
+        class="mt-16 flex flex-col lg:flex-row items-center lg:items-start gap-10 justify-between z-10 relative"
+      >
         <Image
           class="rounded-3xl"
           src={boarding}
@@ -53,7 +55,7 @@ const contacts = [
         />
         {/* Contact Form */}
         <div
-          class="grow rounded-2xl max-w-[600px] shadow-lg py-10 px-6 flex flex-col items-center"
+          class="grow rounded-2xl max-w-[600px] shadow-lg py-10 px-6 flex flex-col items-center bg-white"
         >
           <div class="space-y-4 w-full">
             <input
@@ -91,8 +93,12 @@ const contacts = [
         <h2 class="font-candal text-dark-blue text-5xl">Contact Us</h2>
       </div>
 
-      <div class="mt-10 flex justify-between items-center">
-        <div class="w-[560px] h-[455px] bg-gray-300 rounded-3xl"></div>
+      <div
+        class="mt-10 flex justify-between flex-col lg:flex-row gap-10 items-center"
+      >
+        <div class="w-[350px] md:w-[560px] h-[455px] bg-gray-300 rounded-3xl">
+          <Map />
+        </div>
 
         <div class="max-w-md grow space-y-6">
           {

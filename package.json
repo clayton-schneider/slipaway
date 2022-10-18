@@ -14,6 +14,7 @@
     "@astrojs/image": "^0.9.1",
     "@astrojs/react": "^1.2.0",
     "@astrojs/tailwind": "^2.0.2",
+    "@react-google-maps/api": "^2.13.1",
     "astro": "^1.4.4",
     "astro-icon": "^0.7.3",
     "react": "^18.2.0",
