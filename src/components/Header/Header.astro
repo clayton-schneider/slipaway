@@ -7,8 +7,20 @@ import { Image } from "@astrojs/image/components";
 import PrimaryBtn from "../Button/PrimaryBtn.astro";
 const links = [
   { linkText: "About", link: "/about" },
-  { linkText: "Tours", link: "/Tours" },
-  { linkText: "FAQs", link: "/faqs" },
+  {
+    linkText: "Tours",
+    link: "#",
+    sublinks: [
+      { linkText: "Narrated Public Tour", link: "/tours/narrated-public-tour" },
+      { linkText: "Specialty Cruise", link: "/tours/specialty-cruise" },
+      { linkText: "Private Charter", link: "/tours/private-charter" },
+      { linkText: "Island Excursion", link: "/tours/island-excursion" },
+    ],
+  },
+  {
+    linkText: "FAQs",
+    link: "/faqs",
+  },
   { linkText: "Contact", link: "/contact" },
 ];
 
@@ -29,7 +41,34 @@ const { className } = Astro.props;
   </a>
 
   <ul class="lg:flex space-x-6 items-center hidden text-lg">
-    {links.map((link) => <a href={link.link}>{link.linkText}</a>)}
+    {
+      links.map((link) => {
+        if (link.sublinks) {
+          return (
+            <li class="relative group">
+              <a class="" href={link.link}>
+                <button>{link.linkText}</button>
+              </a>
+              <ul class="absolute hidden pt-1 group-hover:block w-[200px] text-black z-50">
+                {link.sublinks.map((sublink) => (
+                  <li class="first:rounded-t last:rounded-b bg-gray-200 hover:bg-gray-400">
+                    <a class=" py-2 px-4 block" href={sublink.link}>
+                      {sublink.linkText}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        } else {
+          return (
+            <li>
+              <a href={link.link}>{link.linkText}</a>
+            </li>
+          );
+        }
+      })
+    }
     <PrimaryBtn to="/book" text="Book Online" />
   </ul>
 </header>
