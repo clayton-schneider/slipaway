@@ -7,7 +7,6 @@ import CallToAction from "@sections/general/CallToAction.astro";
 import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
 
 import { Icon } from "astro-icon";
-import Contact from "../contact.astro";
 import PolaroidCard from "@components/Card/PolaroidCard.astro";
 
 const details = [
@@ -171,6 +170,27 @@ const relatedTours = [
             }
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-20 px-[2.5%]">
+    <div class="max-w-7xl mx-auto bg-light-blue/30 px-10 py-20 rounded-3xl">
+      <div class="font-bold">
+        <p class="text-orange">On The Water</p>
+        <p class="text-dark-blue text-4xl font-candal">Gallery</p>
+      </div>
+      <div class="flex justify-center gap-5 flex-wrap mt-8">
+        {
+          [...Array(3).keys()].map(() => (
+            <Image
+              src={tourImg}
+              alt="slipaway river tour"
+              width={380}
+              height={260}
+            />
+          ))
+        }
       </div>
     </div>
   </section>
