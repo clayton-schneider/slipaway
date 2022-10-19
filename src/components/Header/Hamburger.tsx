@@ -1,10 +1,13 @@
-import { useState } from "react";
-
-const Hamburger = () => {
-  const [isOpen, setOpen] = useState(false);
-
+interface Props {
+  isOpen: boolean;
+  clicked: () => void;
+}
+const Hamburger = ({ isOpen, clicked }: Props) => {
   return (
-    <button className="cursor-pointer" onClick={() => setOpen(!isOpen)}>
+    <button
+      onClick={clicked}
+      className="cursor-pointer lg:hidden relative z-50"
+    >
       <span
         className={
           "block w-7 h-1 mx-auto my-1 transition-all duration-300 bg-neutral-900 " +

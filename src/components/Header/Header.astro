@@ -4,8 +4,8 @@ import logo from "@data/home/imgs/sar-logo.png";
 
 // Import components
 import { Image } from "@astrojs/image/components";
-import PrimaryBtn from "../Button/PrimaryBtn.astro";
 import Hamburger from "./Hamburger";
+import NavMenu from "./NavMenu";
 const links = [
   { linkText: "About", link: "/about" },
   {
@@ -31,7 +31,10 @@ interface Props {
 const { className } = Astro.props;
 ---
 
-<header class={className + " py-5 px-edge flex items-center justify-between"}>
+<header
+  class={(className ? className : "") +
+    " py-5 px-edge flex items-center justify-between relative"}
+>
   <a href="/"
     ><Image
       src={logo}
@@ -41,37 +44,5 @@ const { className } = Astro.props;
     />
   </a>
 
-  <ul class="lg:flex space-x-6 items-center hidden text-lg">
-    {
-      links.map((link) => {
-        if (link.sublinks) {
-          return (
-            <li class="relative group">
-              <a class="" href={link.link}>
-                <button>{link.linkText}</button>
-              </a>
-              <ul class="absolute hidden pt-1 group-hover:block w-[200px] text-black z-50">
-                {link.sublinks.map((sublink) => (
-                  <li class="first:rounded-t last:rounded-b bg-gray-200 hover:bg-gray-400">
-                    <a class=" py-2 px-4 block" href={sublink.link}>
-                      {sublink.linkText}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          );
-        } else {
-          return (
-            <li>
-              <a href={link.link}>{link.linkText}</a>
-            </li>
-          );
-        }
-      })
-    }
-    <PrimaryBtn to="/book" text="Book Online" />
-  </ul>
-
-  <Hamburger client:load />
+  <NavMenu links={links} client:load />
 </header>
