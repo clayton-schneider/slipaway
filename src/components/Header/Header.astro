@@ -5,6 +5,7 @@ import logo from "@data/home/imgs/sar-logo.png";
 // Import components
 import { Image } from "@astrojs/image/components";
 import PrimaryBtn from "../Button/PrimaryBtn.astro";
+import Hamburger from "./Hamburger";
 const links = [
   { linkText: "About", link: "/about" },
   {
@@ -71,4 +72,6 @@ const { className } = Astro.props;
     }
     <PrimaryBtn to="/book" text="Book Online" />
   </ul>
+
+  <Hamburger client:load />
 </header>
