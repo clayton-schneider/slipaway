@@ -1,7 +1,12 @@
 ---
-import boat from "@data/home/imgs/boat.jpg";
+const images = [
+  { src: "/src/data/home/imgs/boat.jpg", alt: "boat" },
+  { src: "/src/data/home/imgs/boat.jpg", alt: "boat" },
+  { src: "/src/data/home/imgs/boat.jpg", alt: "boat" },
+];
 
 import HorImgCard from "@components/Card/HorImgCard.astro";
+import { Slider } from "@components/Gallery/Slider";
 ---
 
 <section class="my-40 relative">
@@ -30,7 +35,8 @@ import HorImgCard from "@components/Card/HorImgCard.astro";
     </div>
     {/* showcase */}
     <div>
-      <HorImgCard img={boat} alt="Slipaway River Tours" />
+      <!-- <HorImgCard img={boat} alt="Slipaway River Tours" /> -->
+      <Slider images={images} client:visible />
     </div>
   </div>
 </section>
