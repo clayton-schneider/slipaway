@@ -1,11 +1,17 @@
 ---
+import boat from "@data/home/imgs/boat.jpg";
+
+// Must use to pass to react
+import { getImage } from "@astrojs/image";
+const { src } = await getImage({
+  src: boat,
+});
 const images = [
-  { src: "/src/data/home/imgs/boat.jpg", alt: "boat" },
-  { src: "/src/data/home/imgs/boat.jpg", alt: "boat" },
-  { src: "/src/data/home/imgs/boat.jpg", alt: "boat" },
+  { src: src, alt: "boat" },
+  { src: src, alt: "boat" },
+  { src: src, alt: "boat" },
 ];
 
-import HorImgCard from "@components/Card/HorImgCard.astro";
 import { Slider } from "@components/Gallery/Slider";
 ---
 
