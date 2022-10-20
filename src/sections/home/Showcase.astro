@@ -1,15 +1,16 @@
 ---
-import boat from "@data/home/imgs/boat.jpg";
+import imgOne from "@data/home/imgs/boat.jpg";
+import imgTwo from "@data/home/imgs/on-the-water.jpg";
 
 // Must use to pass to react
 import { getImage } from "@astrojs/image";
-const { src } = await getImage({
-  src: boat,
+const boat = await getImage({
+  src: imgOne,
 });
+const water = await getImage({ src: imgTwo });
 const images = [
-  { src: src, alt: "boat" },
-  { src: src, alt: "boat" },
-  { src: src, alt: "boat" },
+  { src: boat.src, alt: "boat" },
+  { src: water.src, alt: "boat" },
 ];
 
 import { Slider } from "@components/Gallery/Slider";
@@ -27,7 +28,7 @@ import { Slider } from "@components/Gallery/Slider";
   </div>
 
   <div class="flex max-w-7xl mx-auto">
-    <div class="">
+    <div class="min-w-max">
       <div class="max-w-lg">
         <p class="text-orange font-candal text-small font-bold">Join Us On A</p>
         <h2 class="font-candal mt-2 text-dark-blue font-bold text-3xl">
@@ -40,7 +41,7 @@ import { Slider } from "@components/Gallery/Slider";
       </div>
     </div>
     {/* showcase */}
-    <div>
+    <div class="">
       <!-- <HorImgCard img={boat} alt="Slipaway River Tours" /> -->
       <Slider images={images} client:visible />
     </div>

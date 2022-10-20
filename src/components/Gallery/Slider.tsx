@@ -10,16 +10,18 @@ interface Props {
 export function Slider({ images }: Props) {
   return (
     <Splide
-      className="h-[350px] w-[600px] relative"
+      className="h-[350px] w-[1200px] relative"
       options={{
         lazy: true,
         type: "loop",
         autoplay: true,
         gap: "40px",
+        perPage: 2,
+        perMove: 1,
         classes: {
           arrow:
             "fill-light-blue absolute [&>svg]:w-5 [&>svg]:h-5 z-50 bg-white rounded-full p-2 shadow-xl shadow-neutral-300",
-          next: "right-10 top-1/2",
+          next: "left-[640px] top-1/2",
           prev: "left-10 top-1/2 rotate-180",
         },
       }}
@@ -27,7 +29,11 @@ export function Slider({ images }: Props) {
     >
       {images.map((image, idx) => (
         <SplideSlide key={idx}>
-          <img src={image.src} alt={image.alt} className="rounded-[50px]" />
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="rounded-[50px] w-full h-full object-cover"
+          />
         </SplideSlide>
       ))}
     </Splide>
