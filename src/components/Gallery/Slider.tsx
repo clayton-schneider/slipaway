@@ -1,4 +1,6 @@
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import * as SplideLib from "@splidejs/react-splide";
+const { Splide, SplideSlide } = SplideLib;
+
 import "@splidejs/react-splide/css/core";
 interface Props {
   images: {
