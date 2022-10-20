@@ -27,8 +27,9 @@ const links = [
 
 interface Props {
   className?: string;
+  lightMode?: boolean;
 }
-const { className } = Astro.props;
+const { className, lightMode = false } = Astro.props;
 ---
 
 <header
@@ -44,5 +45,5 @@ const { className } = Astro.props;
     />
   </a>
 
-  <NavMenu links={links} client:load />
+  <NavMenu links={links} lightMode={lightMode} client:load />
 </header>

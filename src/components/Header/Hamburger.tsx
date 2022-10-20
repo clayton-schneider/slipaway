@@ -1,8 +1,9 @@
 interface Props {
   isOpen: boolean;
   clicked: () => void;
+  lightMode?: boolean;
 }
-const Hamburger = ({ isOpen, clicked }: Props) => {
+const Hamburger = ({ isOpen, clicked, lightMode = false }: Props) => {
   return (
     <button
       onClick={clicked}
@@ -10,20 +11,23 @@ const Hamburger = ({ isOpen, clicked }: Props) => {
     >
       <span
         className={
-          "block w-7 h-1 mx-auto my-1 transition-all duration-300 bg-neutral-900 " +
-          (isOpen ? "rotate-45 translate-y-2" : "")
+          "block w-7 h-1 mx-auto my-1 transition-all duration-300 " +
+          (isOpen ? "rotate-45 translate-y-2 " : "") +
+          (lightMode ? "bg-white" : "bg-neutral-900")
         }
       ></span>
       <span
         className={
-          "block w-7 h-1 mx-auto my-1 transition-all duration-300 bg-neutral-900" +
-          (isOpen ? "opacity-0" : "")
+          "block w-7 h-1 mx-auto my-1 transition-all duration-300 " +
+          (isOpen ? "opacity-0 " : "") +
+          (lightMode ? "bg-white" : "bg-neutral-900")
         }
       ></span>
       <span
         className={
-          "block w-7 h-1 mx-auto my-1 transition-all duration-300 bg-neutral-900 " +
-          (isOpen ? "-rotate-45 -translate-y-2" : "")
+          "block w-7 h-1 mx-auto my-1 transition-all duration-300  " +
+          (isOpen ? "-rotate-45 -translate-y-2 " : "") +
+          (lightMode ? "bg-white" : "bg-neutral-900")
         }
       ></span>
     </button>

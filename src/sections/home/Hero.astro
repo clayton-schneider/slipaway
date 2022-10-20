@@ -13,7 +13,10 @@ import VertImgCard from "@components/Card/VertImgCard.astro";
 
 <section class="relative h-screen max-h-[1000px] max-w-8xl mx-auto">
   {/* Absolute Positioned Elements */}
-  <Header className="absolute top-0 left-0 w-full z-50 text-white" />
+  <Header
+    className="absolute top-0 left-0 w-full z-50 text-white"
+    lightMode={true}
+  />
   <Image
     src={bgImage}
     alt="Slipaway River Tours"
