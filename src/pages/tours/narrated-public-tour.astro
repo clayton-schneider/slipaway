@@ -1,5 +1,6 @@
 ---
 import Layout from "src/layouts/Layout.astro";
+import { getImage } from "@astrojs/image";
 import { Image } from "@astrojs/image/components";
 import tourImg from "@data/general/imgs/public-tour.jpg";
 import topo from "@data/general/imgs/topography-1.png";
@@ -8,6 +9,13 @@ import PrimaryBtn from "@components/Button/PrimaryBtn.astro";
 
 import { Icon } from "astro-icon";
 import PolaroidCard from "@components/Card/PolaroidCard.astro";
+import TourSlider from "@components/Gallery/TourSlider";
+const { src } = await getImage({ src: tourImg });
+const gallery = [
+  { src: src, alt: "img alt" },
+  { src: src, alt: "img alt" },
+  { src: src, alt: "img alt" },
+];
 
 const details = [
   {
@@ -180,18 +188,7 @@ const relatedTours = [
         <p class="text-orange">On The Water</p>
         <p class="text-dark-blue text-4xl font-candal">Gallery</p>
       </div>
-      <div class="flex justify-center gap-5 flex-wrap mt-8">
-        {
-          [...Array(3).keys()].map(() => (
-            <Image
-              src={tourImg}
-              alt="slipaway river tour"
-              width={380}
-              height={260}
-            />
-          ))
-        }
-      </div>
+      <TourSlider images={gallery} className="mt-4" client:load />
     </div>
   </section>
 
