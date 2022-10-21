@@ -17,12 +17,15 @@ export default function ({ images, className }: Props) {
         type: "loop",
         autoplay: true,
         interval: 3000,
+        focus: 0,
         gap: "40px",
         perPage: 3,
         perMove: 1,
         classes: {
           arrow: "hidden",
-          pagination: "w-full h-10",
+          pagination:
+            "flex justify-center mt-10 space-x-1 [&>li]:flex [&>li]:items-center",
+          page: "w-2 h-2 bg-orange border-[3px] border-transparent rounded-full transition-all duration-300 [&.is-active]:bg-white [&.is-active]:border-orange [&.is-active]:w-[14px] [&.is-active]:h-[14px]",
         },
       }}
       aria-label="React Splide Example"
