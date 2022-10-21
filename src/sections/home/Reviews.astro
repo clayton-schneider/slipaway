@@ -5,13 +5,13 @@ import ReviewCard from "@components/Card/ReviewCard.astro";
 import review from "@data/home/review";
 ---
 
-<section class="my-40 relative">
+<section class="my-20 lg:my-40 relative px-[2.5%] overflow-x-clip">
   {/* Absolute Circles */}
   <div class="h-10 w-10 bg-green/20 rounded-full left-10 top-1/2 absolute">
   </div>
   <div class="h-5 w-5 bg-purple/20 rounded-full left-[40%] top-0 absolute">
   </div>
-  <div class="h-16 w-16 bg-yellow/30 rounded-full -left-1 top-10 absolute">
+  <div class="h-16 w-16 bg-yellow/30 rounded-full -left-1 top-10 absolute z-0">
   </div>
   <div class="h-5 w-5 bg-purple/30 rounded-full left-1/3 bottom-0 absolute">
   </div>
@@ -21,16 +21,20 @@ import review from "@data/home/review";
   </div>
   {/* Absolute Circles */}
 
-  <div class="max-w-7xl mx-auto grid grid-cols-9">
-    <div class="col-start-1 col-end-6 row-start-1">
+  <div
+    class="max-w-7xl mx-auto grid grid-cols-1 place-items-center lg:place-items-start lg:grid-cols-9 relative z-10"
+  >
+    <div
+      class="lg:col-start-1 lg:col-end-6 lg:row-start-1 text-center lg:text-left"
+    >
       <p class="font-candal font-bold text-sm text-orange">Testimonials</p>
       <h2 class="font-bold font-candal text-3xl text-blue">
         What Customers Say
       </h2>
-      <ReviewCard review={review} />
+      <ReviewCard review={review} className="mt-5 lg:mt-16" />
     </div>
     <div
-      class="relative max-w-[550px] max-h-[550px] col-start-5 col-end-10 row-start-1"
+      class="relative max-w-[550px] max-h-[550px] lg:col-start-5 lg:col-end-10 lg:row-start-1"
     >
       <Image
         src={hartfordImage}

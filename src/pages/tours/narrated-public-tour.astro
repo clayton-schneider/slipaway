@@ -76,7 +76,7 @@ const relatedTours = [
 ---
 
 <Layout title="Narrated Public Tour">
-  <section class="my-20 px-[2.5%]">
+  <section class="my-20 px-[2.5%] overflow-x-clip">
     <div class="max-w-7xl mx-auto relative">
       {/* Absolute Circles */}
       <div
@@ -144,7 +144,7 @@ const relatedTours = [
         >
         </div>
         {/* Absolute Cirles */}
-        <div class="max-w-[600px]">
+        <div class="max-w-[600px] text-center lg:text-left">
           <h2 class="font-candal font-bold text-3xl text-dark-blue">
             This is just a placeholder
           </h2>
@@ -182,13 +182,15 @@ const relatedTours = [
     </div>
   </section>
 
-  <section class="my-20 px-[2.5%]">
-    <div class="max-w-7xl mx-auto bg-light-blue/30 px-10 py-20 rounded-3xl">
+  <section class="my-20 px-[2.5%] overflow-x-hidden">
+    <div
+      class="max-w-7xl mx-auto bg-light-blue/30 px-5 lg:px-10 py-10 lg:py-20 rounded-3xl"
+    >
       <div class="font-bold">
         <p class="text-orange">On The Water</p>
         <p class="text-dark-blue text-4xl font-candal">Gallery</p>
       </div>
-      <TourSlider images={gallery} className="mt-4" client:load />
+      <TourSlider images={gallery} className="mt-4 min-w-fit" client:load />
     </div>
   </section>
 

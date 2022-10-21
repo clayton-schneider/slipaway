@@ -13,8 +13,11 @@ interface Props {
 const { className, review } = Astro.props;
 ---
 
-<div class="max-w-3xl mt-16 p-5 relative z-10 rounded-2xl bg-white">
-  <div class="flex space-x-1">
+<div
+  class={(className ? className : "") +
+    " max-w-3xl p-5 relative z-10 rounded-2xl bg-white text-center lg:text-left"}
+>
+  <div class="flex space-x-1 justify-center lg:justify-start">
     {[...Array(5).keys()].map(() => <Image src={star} alt="review star" />)}
   </div>
   <p class="mt-5 font-candal font-bold text-orange">{review.highlight}</p>
