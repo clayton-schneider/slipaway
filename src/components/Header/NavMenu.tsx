@@ -27,8 +27,8 @@ const NavMenu = ({ links, lightMode = false }: Props) => {
         className={
           "fixed lg:static top-[200px] md:top-[190px] py-5 lg:py-0 px-4 lg:px-0 flex-col lg:flex-row bg-white lg:bg-transparent w-full lg:w-auto flex transition-all duration-300 gap-6 items-start lg:items-center text-lg " +
           (isOpen
-            ? "left-0 shadow shadow-neutral-300 z-[999] !text-black"
-            : "-left-full")
+            ? "right-0 shadow shadow-neutral-300 z-[999] !text-black"
+            : "-right-full")
         }
       >
         {links.map((link, idx) => {
